@@ -1,0 +1,16 @@
+{
+  "name": "conCatJs",
+  "version": "0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js -h"
+  },
+  "keywords": [],
+  "author": "Gurjit Singh",
+  "license": "MIT",
+  "dependencies": {
+    "caporal": "^1.3.0",
+    "ramda": "^0.26.1"
+  }
+}
