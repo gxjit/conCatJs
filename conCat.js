@@ -1,3 +1,11 @@
+
+
+ // Copyright (c) 2019 Gurjit Singh
+
+ // This source code is licensed under the MIT license that can be found in
+ // the accompanying LICENSE file or at https://opensource.org/licenses/MIT
+
+
 const R = require("ramda");
 const fs = require("fs");
 const path = require("path");
