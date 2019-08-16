@@ -1,22 +1,19 @@
+// Copyright (c) 2019 Gurjit Singh
 
-
- // Copyright (c) 2019 Gurjit Singh
-
- // This source code is licensed under the MIT license that can be found in
- // the accompanying LICENSE file or at https://opensource.org/licenses/MIT
-
+// This source code is licensed under the MIT license that can be found in
+// the accompanying LICENSE file or at https://opensource.org/licenses/MIT
 
 const R = require("ramda");
 const fs = require("fs");
 const path = require("path");
 
-module.exports = conCat = (resPath, ext) => {
+module.exports = conCat = (dir, ext, dest) => {
   "use strict";
   // const _ = R.__;
 
   const readDirCr = x => fs.readdirSync(x, { withFileTypes: true });
   const readFileCr = x => fs.readFileSync(x, "utf8");
-  const pathJoinCr = x => path.join(resPath, x);
+  const pathJoinCr = x => path.join(dir, x);
   const pathJoinDirentCr = x => pathJoinCr(x.name);
 
   const logC = x => console.log(x);
@@ -45,7 +42,7 @@ module.exports = conCat = (resPath, ext) => {
   const arrayFromNewlines = x => Array.from(x).join("\n");
 
   const writeFile = x => y => fs.writeFileSync(pathJoinCr(x), y);
-  const writeToFile = writeFile("0conct.txt");
+  const writeToFile = writeFile(dest);
 
   R.pipe(
     readDirCr,
@@ -58,5 +55,5 @@ module.exports = conCat = (resPath, ext) => {
     arrayFromNewlines,
     writeToFile
     // logC
-  )(resPath);
+  )(dir);
 };

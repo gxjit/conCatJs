@@ -1,10 +1,7 @@
+// Copyright (c) 2019 Gurjit Singh
 
-
- // Copyright (c) 2019 Gurjit Singh
-
- // This source code is licensed under the MIT license that can be found in
- // the accompanying LICENSE file or at https://opensource.org/licenses/MIT
-
+// This source code is licensed under the MIT license that can be found in
+// the accompanying LICENSE file or at https://opensource.org/licenses/MIT
 
 const cli = require("caporal");
 const path = require("path");
@@ -25,10 +22,11 @@ const conCat = require("./conCat");
         }
         return path.resolve(dir);
       })
-      .argument("[ext]", "file extension", ext => String(ext), "txt")
+      .argument("[ext]", "file extension", x => String(x), "txt")
+      .argument("[dest]", "destination filename", x => String(x), "concat.txt")
       .action(args => {
         // console.log(args.dir, args.ext);
-        conCat(args.dir, args.ext);
+        conCat(args.dir, args.ext, args.dest);
       });
 
     cli.parse(process.argv);
